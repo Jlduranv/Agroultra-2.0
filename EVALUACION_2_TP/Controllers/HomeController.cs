@@ -22,7 +22,19 @@ namespace EVALUACION_2_TP.Controllers {
         {
             return View();
         }
+        public ActionResult Menu_Registros()
+        {
+            return View();
+        }
         public ActionResult Registro_Usuario()
+        {
+            return View();
+        }
+        public ActionResult Registro_Asistencia()
+        {
+            return View();
+        }
+        public ActionResult Registro_Produccion()
         {
             return View();
         }

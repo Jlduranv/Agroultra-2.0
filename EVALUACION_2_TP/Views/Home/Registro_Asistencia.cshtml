@@ -2,7 +2,7 @@
 @{
                 /**/
 
-                ViewBag.Title = "Registro_Usuario";
+                ViewBag.Title = "Registro_Asistencia";
 }
 
 <br />
@@ -10,43 +10,32 @@
 <form action="/action_page.php">
     <img src="~/Content/img/usuarios.svg" alt="Control" style="width:70px; height:60px">
     <fieldset>
-        <legend>Ingreso Usuario</legend>
+        <legend>Ingresar Inasistencia</legend>
         <table style="width:100%">
             <tr>
-                <th>Rut</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
+                <th>Rut:</th>
             </tr>
             <tr>
                 <td><input type="text" required></td>
-                <td><input type="text" required></td>
-                <td><input type="text" required></td>
+
             </tr>
             <tr>
-                <th>Código</th>
-                <th>Tipo</th>
-                <th>Email</th>
+                <th>Código:</th>
             </tr>
             <tr>
                 <td><input type="text" required></td>
-                <td><input type="text" required></td>
-                <td><input type="text" required></td>
             </tr>
+
             <tr>
-                <th>Teléfono</th>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <th>Datos Adicionales</th>
+                <th>Justifique:</th>
             </tr>
             <tr>
                 <td><textarea name="mensaje"></textarea></td>
             </tr>
+
         </table>
 
-        <p><a class="btn btn-default" onclick="alert('Usuario Registrado')" href="">Ingresar Usuario &raquo;</a></p>
+        <p><a class="btn btn-default" onclick="alert('Registrado')" href="">Ingresar&raquo;</a></p>
     </fieldset>
 </form>
 @*<form action="/action_page.php">

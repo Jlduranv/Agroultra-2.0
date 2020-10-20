@@ -1,0 +1,368 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "Menu_Registros";
+}
+<br><br>
+<fieldset>
+    <legend>Registro</legend>
+    <img src="~/Content/img/control.svg" alt="Control" style="width:70px; height:60px">
+
+    <a class="btn btn-default" href="/Home/Registro_Produccion">Produccion &raquo;</a>
+    <a class="btn btn-default" href="/Home/Registro_Sectores">Sectores &raquo;</a>
+
+</fieldset>
+<br><br><br>
+<fieldset>
+    <legend>Producción Cosecha</legend>
+    <img src="~/Content/img/medios.svg" alt="Control" style="width:70px; height:60px">
+
+
+    <a class="btn btn-default" href="/Home/Registro_Asistencia">Registro Asistencia &raquo;</a>
+    <a class="btn btn-default" href="">Asignación Cosecha &raquo;</a>
+    <a class="btn btn-default" href="">Datos Cosecha &raquo;</a>
+    <br><br><br>
+    <img src="~/Content/img/impresora.svg" alt="Control" style="width:70px; height:60px">
+    <a class="btn btn-default" href="">Comprobante Producción &raquo;</a>
+
+</fieldset>
+<br><br><br>
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de barrasL</title>
+
+    <style>
+        .chart-wrap {
+            --chart-width: 420px;
+            --grid-color: #aaa;
+            --bar-color: #F16335;
+            --bar-thickness: 40px;
+            --bar-rounded: 3px;
+            --bar-spacing: 10px;
+            font-family: sans-serif;
+            width: var(--chart-width);
+        }
+
+            .chart-wrap .title {
+                font-weight: bold;
+                padding: 1.8em 0;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            /* cuando definimos el gráfico en horizontal, lo giramos 90 grados */
+            .chart-wrap.horizontal .grid {
+                transform: rotate(-90deg);
+            }
+
+            .chart-wrap.horizontal .bar::after {
+                /* giramos las letras para horizontal*/
+                transform: rotate(45deg);
+                padding-top: 0px;
+                display: block;
+            }
+
+            .chart-wrap .grid {
+                margin-left: 50px;
+                position: relative;
+                padding: 5px 0 5px 0;
+                height: 100%;
+                width: 100%;
+                border-left: 2px solid var(--grid-color);
+            }
+
+                /* posicionamos el % del gráfico*/
+                .chart-wrap .grid::before {
+                    font-size: 0.8em;
+                    font-weight: bold;
+                    content: '0%';
+                    position: absolute;
+                    left: -0.5em;
+                    top: -1.5em;
+                }
+
+                .chart-wrap .grid::after {
+                    font-size: 0.8em;
+                    font-weight: bold;
+                    content: '100%';
+                    position: absolute;
+                    right: -1.5em;
+                    top: -1.5em;
+                }
+
+            /* giramos las valores de 0% y 100% para horizontal */
+            .chart-wrap.horizontal .grid::before, .chart-wrap.horizontal .grid::after {
+                transform: rotate(90deg);
+            }
+
+            .chart-wrap .bar {
+                width: var(--bar-value);
+                height: var(--bar-thickness);
+                margin: var(--bar-spacing) 0;
+                background-color: var(--bar-color);
+                border-radius: 0 var(--bar-rounded) var(--bar-rounded) 0;
+            }
+
+                .chart-wrap .bar:hover {
+                    opacity: 0.7;
+                }
+
+                .chart-wrap .bar::after {
+                    content: attr(data-name);
+                    margin-left: 100%;
+                    padding: 10px;
+                    display: inline-block;
+                    white-space: nowrap;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="chart-wrap horizontal">
+        <!-- quitar el estilo "horizontal" para visualizar verticalmente -->
+        <div class="title"></div>
+
+        <div class="grid">
+            <div class="bar" style="--bar-value:85%;" data-name="Cerezos" title="Cerezos 85%"></div>
+            <div class="bar" style="--bar-value:23%;" data-name="Manzana" title="Manzana 23%"></div>
+            <div class="bar" style="--bar-value:7%;" data-name="Peras" title="Peras 7%"></div>
+            <div class="bar" style="--bar-value:38%;" data-name="Limones" title="Limones 38%"></div>
+            <div class="bar" style="--bar-value:35%;" data-name="Papas" title="Papas 35%"></div>
+            <div class="bar" style="--bar-value:30%;" data-name="Frutilla" title="Frutilla 30%"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+<br><br><br>
+<br><br><br>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>gráfico de pastel con cavas en HTML5</title>
+
+    <style>
+        .leyendaH {
+            text-align: center;
+        }
+
+        .leyenda ul {
+            list-style-type: none;
+            padding: 0 10px;
+        }
+
+        .leyendaH ul {
+            display: inline-block;
+        }
+
+        .leyenda ul > li {
+            font-size: 14px;
+        }
+
+        .leyendaH ul > li {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .leyenda ul > li > span {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            margin-right: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="float:left;margin-right:50px;">
+        <canvas id="canvas1"></canvas>
+        <div id="leyenda1" class="leyenda"></div>
+    </div>
+
+    <div style="float:left;">
+        <canvas id="canvas2"></canvas>
+        <div id="leyenda2" class="leyenda leyendaH"></div>
+    </div>
+
+    <script>
+        /**
+         * Clase para generar graficos de pastel
+         * Tiene que recibir:
+         *	el id del canvas
+         *	la anchura y altura del canvas
+         *	un array con los valores a mostrar del tipo:
+         *		var valores={
+         *			"Access":	{valor:10,color:"blue"},
+         *			"PHP":		{valor:23,color:"red"},
+         *			"Python":	{valor:18,color:"green"},
+         *			".NET":		{valor:12,color:"Orange"},
+         *			"C++":		{valor:30,color:"Cyan"}
+         *		}
+         */
+        var miPastel = function (canvasId, width, height, valores) {
+            this.canvas = document.getElementById(canvasId);;
+            this.canvas.width = width;
+            this.canvas.height = height;
+            this.radio = Math.min(this.canvas.width / 2, this.canvas.height / 2)
+            this.context = this.canvas.getContext("2d");
+            this.valores = valores;
+            this.tamanoDonut = 0;
+
+            /**
+             * Dibuja un gráfico de pastel
+             */
+            this.dibujar = function () {
+                this.total = this.getTotal();
+                var valor = 0;
+                var inicioAngulo = 0;
+                var angulo = 0;
+
+                // creamos los quesos del pastel
+                for (var i in this.valores) {
+                    valor = valores[i]["valor"];
+                    color = valores[i]["color"];
+                    angulo = 2 * Math.PI * valor / this.total;
+
+                    this.context.fillStyle = color;
+                    this.context.beginPath();
+                    this.context.moveTo(this.canvas.width / 2, this.canvas.height / 2);
+                    this.context.arc(this.canvas.width / 2, this.canvas.height / 2, this.radio, inicioAngulo, (inicioAngulo + angulo));
+                    this.context.closePath();
+                    this.context.fill();
+                    inicioAngulo += angulo;
+                }
+            }
+
+            /**
+             * Dibuja un gráfico de pastel con una redonda en medio en modo de donut
+             * Tiene que recibir:
+             *	el tamaño de la redonda central (0 no hay redonda - 1 es todo)
+             *	el color de la redonda
+             */
+            this.dibujarDonut = function (tamano, color) {
+                this.tamanoDonut = tamano;
+                this.dibujar();
+
+                // creamos un circulo del color recibido en medio
+                this.context.fillStyle = color;
+                this.context.beginPath();
+                this.context.moveTo(this.canvas.width / 2, this.canvas.height / 2);
+                this.context.arc(this.canvas.width / 2, this.canvas.height / 2, this.radio * tamano, 0, 2 * Math.PI);
+                this.context.closePath();
+                this.context.fill();
+            }
+
+            /**
+             * Pone el tanto por ciento de cada uno de los valores
+             * Tiene que recibir:
+             *	el color del texto
+             */
+            this.ponerPorCiento = function (color) {
+                var valor = 0;
+                var etiquetaX = 0;
+                var etiquetaY = 0;
+                var inicioAngulo = 0;
+                var angulo = 0;
+                var texto = "";
+                var incrementar = 0;
+
+                // si hemos dibujado un donut, tenemos que incrementar el valor del radio
+                // para que quede centrado
+                if (this.tamanoDonut)
+                    incrementar = (this.radio * this.tamanoDonut) / 2;
+
+                this.context.font = "bold 12pt Calibri";
+                this.context.fillStyle = color;
+                for (var i in this.valores) {
+                    valor = valores[i]["valor"];
+                    angulo = 2 * Math.PI * valor / this.total;
+
+                    // calculamos la posición del texto
+                    etiquetaX = this.canvas.width / 2 + (incrementar + this.radio / 2) * Math.cos(inicioAngulo + angulo / 2);
+                    etiquetaY = this.canvas.height / 2 + (incrementar + this.radio / 2) * Math.sin(inicioAngulo + angulo / 2);
+
+                    texto = Math.round(100 * valor / this.total);
+
+                    // movemos la posición unos pixels si estamos en la parte izquierda
+                    // del pastel para que quede mas centrado
+                    if (etiquetaX < this.canvas.width / 2)
+                        etiquetaX -= 10;
+
+                    // ponemos los valores
+                    this.context.beginPath();
+                    this.context.fillText(texto + "%", etiquetaX, etiquetaY);
+                    this.context.stroke();
+
+                    inicioAngulo += angulo;
+                }
+            }
+
+            /**
+             * Function que devuelve la suma del total de los valores recibidos en el array
+             */
+            this.getTotal = function () {
+                var total = 0;
+                for (var i in this.valores) {
+                    total += valores[i]["valor"];
+                }
+                return total;
+            }
+
+            /**
+             * Función que devuelve una lista (<ul><li>) con la leyenda
+             * Tiene que recibir el id donde poner la leyenda
+             */
+            this.ponerLeyenda = function (leyendaId) {
+                var codigoHTML = "<ul class='leyenda'>";
+
+                for (var i in this.valores) {
+                    codigoHTML += "<li><span style='background-color:" + valores[i]["color"] + "'></span>" + i + "</li>";
+                }
+                codigoHTML += "</ul>";
+                document.getElementById(leyendaId).innerHTML = codigoHTML;
+            }
+        }
+
+        // definimos los valores de nuestra gráfica
+        var valores = {
+            "Cerezos": { valor: 10, color: "blue" },
+            "Manzana": { valor: 23, color: "red" },
+            "Peras": { valor: 18, color: "green" },
+            "Papas": { valor: 12, color: "Orange" },
+            "Frutilla": { valor: 30, color: "Cyan" }
+        }
+
+        // generamos el primer pastel
+        var pastel = new miPastel("canvas1", 300, 300, valores);
+        pastel.dibujar();
+        pastel.ponerPorCiento("white");
+        pastel.ponerLeyenda("leyenda1");
+
+        // generamos el segundo pastel
+        var pastel = new miPastel("canvas2", 300, 300, valores);
+        pastel.dibujarDonut(0.5, "white");
+        pastel.ponerPorCiento("white");
+        pastel.ponerLeyenda("leyenda2");
+
+
+    </script>
+
+</body>
+</html>
+<br><br><br>
+<br><br><br>
+<html>
+<body>
+
+    <img src="~/Content/img/impresora.svg" alt="Control" style="width:70px; height:60px">
+    <a class="btn btn-default" href="">Reporte General &raquo;</a>
+    <br><br><br>
+    <a class="btn btn-default" onclick="alert('Ud. ha finalizado Sesion')" href="/Home/Index">Cerrar Sesion &raquo;</a>
+
+</body>
+</html>

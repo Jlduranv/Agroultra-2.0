@@ -124,9 +124,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -287,9 +284,12 @@
     <Content Include="Views\Home\Registro_Fruto.cshtml" />
     <Content Include="Views\Home\Registro_Sectores.cshtml" />
     <Content Include="Views\Home\Menu_Opciones.cshtml" />
-    <Content Include="Views\Home\Registro_Usuario.cshtml" />
+    <Content Include="Views\Home\Registro_Asistencia.cshtml" />
     <Content Include="Views\Home\Ingreso.cshtml" />
     <Content Include="Views\Shared\_menu_horizontal_a.cshtml" />
+    <Content Include="Views\Home\Menu_Registros.cshtml" />
+    <Content Include="Views\Home\Registro_Usuario.cshtml" />
+    <Content Include="Views\Home\Registro_Produccion.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
