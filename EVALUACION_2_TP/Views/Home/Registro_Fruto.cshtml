@@ -2,6 +2,31 @@
 @{
     ViewBag.Title = "Registro_Fruto";
 }
-@Html.Partial("_menu_horizontal_a")
-<h2>Registro_Fruto</h2>
 
+<br />
+<p><a class="btn btn-default" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
+<form>
+    <img src="~/Content/img/frutos.svg" alt="Control" style="width:70px; height:60px">
+    <fieldset>
+        <legend>Ingreso Fruto</legend>
+        <table style="width:100%">
+            <tr>
+                <th>Identificador</th>
+                <th>Nombre Fruto</th>
+                <th>Designación</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <th>Caracteristicas Adicionales</th>
+            </tr>
+            <tr>
+                <td><textarea name="mensaje"></textarea></td>
+            </tr>
+        </table>
+        <p><a class="btn btn-default" onclick="alert('Fruto Registrado')" href="">Ingresar Fruto &raquo;</a></p>
+    </fieldset>
+</form>

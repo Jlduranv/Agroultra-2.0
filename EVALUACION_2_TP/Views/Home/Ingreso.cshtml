@@ -2,8 +2,34 @@
 @{
     ViewBag.Title = "Ingreso";
 }
-@Html.Partial("_menu_horizontal_a")
 
-<div style="position: relative; top:100px; background-color:yellowgreen; width: 100%; height: auto">
-    <h2>Ingreso</h2>
-</div>
+<h2></h2>
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="utf-8">
+    @*<title>XXXXXXXXXXXXXX</title>*@
+</head>
+<body>
+    <form>
+
+        <br><br>
+        <p style="text-align:center;">
+            <img src="~/Content/img/usuarios.svg" alt="Control" style="width:70px; height:60px">
+            <br><br>
+            Usuario:
+            <br>
+            <input type="text">
+            <br><br>
+        </p>
+        <p style="text-align:center;">
+            Password:
+            <br>
+            <input type="text">
+            <br><br><br>
+            <a style="text-align:center;" class="btn btn-default" href="/Home/Menu_Opciones">Ingresar Administrador &raquo;</a>
+            <a class="btn btn-default" href="/Home/Menu_Registros">Ingresar Usuario &raquo;</a>
+        </p>
+    </form>
+</body>
+</html>
