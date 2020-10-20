@@ -10091,6 +10091,24 @@ hr.divider {
   border-color: var(--orange);
 }
 
+hr.divider-large {
+    max-width: 30rem;
+    border-width: 0.2rem;
+    border-color: var(--orange);
+}
+
+hr.divider-xlarge {
+    max-width: 60rem;
+    border-width: 0.3rem;
+    border-color: var(--orange);
+}
+
+hr.divider-a {
+    max-width: 15rem;
+    border-width: 0.2rem;
+    border-color: var(--orange);
+}
+
 hr.light {
   border-color: #fff;
 }
