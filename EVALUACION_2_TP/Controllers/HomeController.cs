@@ -6,10 +6,15 @@ using System.Web.Mvc;
 
 namespace EVALUACION_2_TP.Controllers {
     public class HomeController : Controller {
-        public ActionResult Index() {
+        public ActionResult Index()
+        {
             return View();
         }
-        
+        public ActionResult Vista_Usuario()
+        {
+            return View();
+        }
+
         public ActionResult Registro_Fruto()
         {
             return View();

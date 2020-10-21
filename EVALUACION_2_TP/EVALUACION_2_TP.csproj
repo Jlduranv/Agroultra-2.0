@@ -290,6 +290,7 @@
     <Content Include="Views\Home\Menu_Registros.cshtml" />
     <Content Include="Views\Home\Registro_Usuario.cshtml" />
     <Content Include="Views\Home\Registro_Produccion.cshtml" />
+    <Content Include="Views\Home\Vista_Usuario.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
