@@ -11,25 +11,35 @@
         <legend>Ingreso de Producción</legend>
         <table style="width:100%">
             <tr>
-                <th>Identificador</th>
-                <th>Nombre Fruto</th>
-                <th>Sector</th>
-                <th>Peso</th>
+                <th>Identificador:
+                <input type="text">
+                </th>
+               
+                <th>
+                    <label for="name">Fruto:</label>
+                    <select name="select">
+                        <option value="Value1">Fresa</option>
+                        <option value="value2" selected>Arándano</option>
+                        <option value="Value3">Mora</option>
+                    </select>
+                </th>
+                <th>
+                    <label for="name">Sector:</label>
+                    <select name="select">
+                        <option value="Value1">Campo 1</option>
+                        <option value="value2" selected>Campo 2</option>
+                        <option value="Value3">Campo 3</option>
+                    </select>
+                </th>
+
+                <th>Peso (kg):
+                <input type="text">
+                </th>
+
 
             </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-
-            </tr>
-            <tr>
-                <th>Caracteristicas Adicionales</th>
-            </tr>
-            <tr>
-                <td><textarea name="mensaje"></textarea></td>
-            </tr>
+       
+           
         </table>
         <p><a class="btn btn-default" onclick="alert('Fruto Registrado')" href="">Ingresar Fruto &raquo;</a></p>
     </fieldset>

@@ -11,21 +11,25 @@
         <legend>Ingreso Fruto</legend>
         <table style="width:100%">
             <tr>
-                <th>Identificador</th>
-                <th>Nombre Fruto</th>
-                <th>Designación</th>
+                <th>Identificador:
+                <input type="text">
+                </th>
+
+                <th>
+                    <label for="name">Fruto:</label>
+                    <select name="select">
+                        <option value="Value1">Fresa</option>
+                        <option value="value2" selected>Arándano</option>
+                        <option value="Value1">Mora</option>
+                    </select>
+                </th>
+
+                <th>Designación:
+                <input type="text">
+                </th>
+
             </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <th>Caracteristicas Adicionales</th>
-            </tr>
-            <tr>
-                <td><textarea name="mensaje"></textarea></td>
-            </tr>
+                       
         </table>
         <p><a class="btn btn-default" onclick="alert('Fruto Registrado')" href="">Ingresar Fruto &raquo;</a></p>
     </fieldset>

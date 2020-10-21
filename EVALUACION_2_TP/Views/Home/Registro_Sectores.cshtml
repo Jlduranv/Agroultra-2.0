@@ -14,21 +14,24 @@
         <legend>Ingreso Sector</legend>
         <table style="width:100%">
             <tr>
-                <th>Número</th>
-                <th>Parcela</th>
-                <th>Fruto</th>
+                <th>Número:
+                <input type="text">
+                </th>
+
+                <th>Parcela:
+                <input type="text">
+                </th>
+
+                <th><label for="name">Sector:</label>
+                    <select name="select">
+                        <option value="Value1">Campo 1</option>
+                        <option value="value2" selected>Campo 2</option>
+                        <option value="Value3">Campo 3</option>
+                    </select>
+                </th>
+
             </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <th>Datos Adicionales</th>
-            </tr>
-            <tr>
-                <td><textarea name="mensaje"></textarea></td>
-            </tr>
+            
         </table>
         <p><a class="btn btn-default" onclick="alert('Sector Registrado')" href="">Ingresar Sector &raquo;</a></p>
     </fieldset>

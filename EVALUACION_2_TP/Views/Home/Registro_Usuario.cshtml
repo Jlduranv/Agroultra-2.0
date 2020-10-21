@@ -13,37 +13,51 @@
         <legend>Ingreso Usuario</legend>
         <table style="width:100%">
             <tr>
-                <th>Rut</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
+            <tr>
+                <th>Rut:</th>
             </tr>
             <tr>
-                <td><input type="text" required></td>
-                <td><input type="text" required></td>
-                <td><input type="text" required></td>
+                <td><input type="text"></td>
             </tr>
+
             <tr>
-                <th>Código</th>
-                <th>Tipo</th>
-                <th>Email</th>
-            </tr>
-            <tr>
-                <td><input type="text" required></td>
-                <td><input type="text" required></td>
-                <td><input type="text" required></td>
-            </tr>
-            <tr>
-                <th>Teléfono</th>
+                <th>Nombre:</th>
             </tr>
             <tr>
                 <td><input type="text"></td>
             </tr>
             <tr>
-                <th>Datos Adicionales</th>
+            <th>Apellido:</th>
+            <tr>
+                <td><input type="text"></td>
+            </tr>
+           
+            <tr>
+                <th>Código:</th>
+            <tr>
+                <td><input type="text"></td>
+            </tr>
+
+            <th>E-mail:</th>
+            <tr>
+                <td><input type="text"></td>
             </tr>
             <tr>
-                <td><textarea name="mensaje"></textarea></td>
+                <th>Teléfono:</th>
             </tr>
+            <tr>
+                <td><input type="text"></td>
+            </tr>
+            <th>
+                <label for="name">Tipo:</label>
+                <select name="select">
+                    <option value="Value1">Nivel 1</option>
+                    <option value="value2" selected>Nivel 2</option>
+                    <option value="Value3">Nivel 3</option>
+                </select>
+            </th>
+        </tr>
+
         </table>
 
         <p><a class="btn btn-default" onclick="alert('Usuario Registrado')" href="">Ingresar Usuario &raquo;</a></p>
