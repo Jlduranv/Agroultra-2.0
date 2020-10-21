@@ -1,71 +1,78 @@
 ﻿
 @{
-                /**/
-
-                ViewBag.Title = "Registro_Usuario";
+    ViewBag.Title = "Registro_Usuario";
 }
-
-<br />
-<p><a class="btn btn-default" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
-<form action="/action_page.php">
-    <img src="~/Content/img/usuarios.svg" alt="Control" style="width:70px; height:60px">
-    <fieldset>
-        <legend>Ingreso Usuario</legend>
-        <table style="width:100%">
-            <tr>
-            <tr>
-                <th>Rut:</th>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-            </tr>
-
-            <tr>
-                <th>Nombre:</th>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-            <th>Apellido:</th>
-            <tr>
-                <td><input type="text"></td>
-            </tr>
-           
-            <tr>
-                <th>Código:</th>
-            <tr>
-                <td><input type="text"></td>
-            </tr>
-
-            <th>E-mail:</th>
-            <tr>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <th>Teléfono:</th>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-            </tr>
-            <th>
-                <label for="name">Tipo:</label>
-                <select name="select">
-                    <option value="Value1">Nivel 1</option>
-                    <option value="value2" selected>Nivel 2</option>
-                    <option value="Value3">Nivel 3</option>
-                </select>
-            </th>
-        </tr>
-
-        </table>
-
-        <p><a class="btn btn-default" onclick="alert('Usuario Registrado')" href="">Ingresar Usuario &raquo;</a></p>
-    </fieldset>
-</form>
-@*<form action="/action_page.php">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <input type="submit" value="Ingresar Usuario">
-
-    </form>*@
+@{
+    ViewBag.Title = "Registro_Sectores";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+            <p><a class="btn btn-primary btn-xl" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
+        </div>
+    </div>
+</div>
+<section class="page-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 card shadow mb-4">
+                <div class="card-header py-3 align-middle">
+                    <div class="row text-primary">
+                        <img src="~/Content/img/usuarios.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px " />
+                        <h4 class="m-0 font-weight-bold text-primary">Ingreso Usuario</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <fieldset>
+                        <table style="width:100%">
+                            <tr align='center'>
+                                <td>Rut:</td>
+                                <td>Nombre:</td>
+                                <td>Apellido:</td>
+                            </tr>
+                            <tr align='center'>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td align='center' colspan="3"><hr /></td>
+                            </tr>
+                            <tr align='center'>
+                                <td>Código:</td>
+                                <td>E-mail:</td>
+                                <td>Teléfono:</td>
+                            <tr align='center'>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td align='center' colspan="3"><hr /></td>
+                            </tr>
+                            <tr align='center'>
+                                <td><label for="name">Tipo:</label></td>
+                                <td>
+                                    <select name="select">
+                                        <option value="Value1">Nivel 1</option>
+                                        <option value="value2" selected>Nivel 2</option>
+                                        <option value="Value3">Nivel 3</option>
+                                    </select>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td align='center' colspan="3"><hr /></td>
+                            </tr>
+                            <tr align='center'>
+                                <td align='left' colspan="3">
+                                    <p><a class="btn btn-info btn-lg" onclick="alert('Usuario Registrado')" href="">Ingresar &raquo;</a></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

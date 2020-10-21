@@ -11,10 +11,10 @@
     <div class="container">
         <div class="row">
             <div class="row col-12">
-                <div class="col-5 card shadow mb-4">
+                <div class="col-4 card shadow mb-4">
                     <div class="card-header py-3">
                         <div class="row">
-                            <img src="~/Content/img/control.svg" alt="Control" style="width:auto; height:25px">
+                            <img src="~/Content/img/control.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px ">
                             <h5 class="m-0 font-weight-bold text-primary">Registro Datos Iniciales</h5>
                         </div>
                     </div>
@@ -25,18 +25,18 @@
                         <a class="btn btn-primary btn-sm" href="/Home/Registro_Sectores">Sectores &raquo;</a>
                     </div>
                 </div>
-                <div class="col-lg-1"></div>
-                <div class="col-5 card shadow mb-4">
+                <div style="flex: 0 0 2.5%; max-width: 2.5%;"></div>
+                <div class="col-7 card shadow mb-4">
                     <div class="card-header py-3">
                         <div class="row">
-                            <img src="~/Content/img/medios.svg" alt="Control" style="width:auto; height:25px">
+                            <img src="~/Content/img/medios.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px ">
                             <h5 class="m-0 font-weight-bold text-primary">Producción Cosecha</h5>
                         </div>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-info btn-sm" href="/Home/Registro_Asistencia">Registro<br>Asistencia &raquo;</a>
-                        <a class="btn btn-info btn-sm" href="/Home/Asignacion_Cosecha"><br>Asig Cosecha &raquo;</a>
-                        <a class="btn btn-info btn-sm" href="/Home/Registro_Produccion">Datos<br>Cosecha &raquo;</a>
+                        <a class="btn btn-info btn-sm" href="/Home/Registro_Asistencia">Registro Asistencia &raquo;</a>
+                        <a class="btn btn-info btn-sm" href="/Home/Asignacion_Cosecha">Asignación Cosecha &raquo;</a>
+                        <a class="btn btn-info btn-sm" href="/Home/Registro_Produccion">Datos Cosecha &raquo;</a>
                         <br><br>
                         <img src="~/Content/img/impresora.svg" alt="Control" style="width:auto; height:60px">
                         <a class="btn btn-info btn-sm" href="">Comprobante Producción &raquo;</a>
@@ -51,7 +51,7 @@
             <div class="row col-lg-auto card shadow mb-4">
                 <div class="card-header py-3">
                     <div class="row">
-                        <img src="~/Content/img/datos.svg" alt="Control" style="width:auto; height:25px">
+                        <img src="~/Content/img/datos.svg" alt="Control" style="width:auto; height:25px; padding: 0px 10px ">
                         <h4 class="m-0 font-weight-bold text-primary">Análisis Cosecha</h4>
                     </div>
                 </div>
@@ -372,21 +372,27 @@
                             pastel.dibujarDonut(0.5, "white");
                             pastel.ponerPorCiento("white");
                             pastel.ponerLeyenda("leyenda2");
-                        </script>                     
+                        </script>
                     </body>
             </div>
         </div>
-    </div>
-</div>
-    <div class="container">
-        <div class="row">
-            <div class="row col-8 card shadow mb-4">
-                <div class="card bg-light text-black shadow">
-                    <img src="~/Content/img/impresora.svg" alt="Control" style="width:auto; height:60px">
+        <div class="col-xl-3 col-md-5 mb-4">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="col-auto"><br><br>
+                                <img src="~/Content/img/impresora.svg" alt="Control" style="width:auto; height:60px">
+                                <a class="btn btn-success btn-sm" href="">Reporte General &raquo;</a><br>
+                            </div><br><br>
+                            <div class="col mr-2">
+                                <a class="btn btn-success btn-sm" onclick="alert('Ud. ha finalizado Sesion')" href="/Home/Index">Cerrar Sesion &raquo;</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a class="btn btn-success btn-sm" href="">Reporte General &raquo;</a>
-                <a class="btn btn-success btn-sm" onclick="alert('Ud. ha finalizado Sesion')" href="/Home/Index">Cerrar Sesion &raquo;</a>
             </div>
+        </div>
         </div>
     </div>
 </section>

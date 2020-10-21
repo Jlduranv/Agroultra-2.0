@@ -2,45 +2,71 @@
 @{
     ViewBag.Title = "Registro_Produccion";
 }
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+            <p><a class="btn btn-primary btn-xl" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
+        </div>
+    </div>
+</div>
+<section class="page-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 card shadow mb-4">
+                <div class="card-header py-3 align-middle">
+                    <div class="row text-primary">
+                        <img src="~/Content/img/frutos.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px " />
+                        <h4 class="m-0 font-weight-bold text-primary">Ingreso de Producción</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <fieldset>
+                            <table style="width:100%">
+                                <tr>
+                                    <th>
+                                        Identificador:
+                                        <input type="text">
+                                    </th>
 
-<br />
-<p><a class="btn btn-default" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
-<form>
-    <img src="~/Content/img/frutos.svg" alt="Control" style="width:70px; height:60px">
-    <fieldset>
-        <legend>Ingreso de Producción</legend>
-        <table style="width:100%">
-            <tr>
-                <th>Identificador:
-                <input type="text">
-                </th>
-               
-                <th>
-                    <label for="name">Fruto:</label>
-                    <select name="select">
-                        <option value="Value1">Fresa</option>
-                        <option value="value2" selected>Arándano</option>
-                        <option value="Value3">Mora</option>
-                    </select>
-                </th>
-                <th>
-                    <label for="name">Sector:</label>
-                    <select name="select">
-                        <option value="Value1">Campo 1</option>
-                        <option value="value2" selected>Campo 2</option>
-                        <option value="Value3">Campo 3</option>
-                    </select>
-                </th>
+                                    <th>
+                                        <label for="name">Fruto:</label>
+                                        <select name="select">
+                                            <option value="Value1">Fresa</option>
+                                            <option value="value2" selected>Arándano</option>
+                                            <option value="Value3">Mora</option>
+                                        </select>
+                                    </th>
+                                    <th>
+                                        <label for="name">Sector:</label>
+                                        <select name="select">
+                                            <option value="Value1">Campo 1</option>
+                                            <option value="value2" selected>Campo 2</option>
+                                            <option value="Value3">Campo 3</option>
+                                        </select>
+                                    </th>
 
-                <th>Peso (kg):
-                <input type="text">
-                </th>
+                                    <th>
+                                        Peso (kg):
+                                        <input type="text">
+                                    </th>
 
 
-            </tr>
-       
-           
-        </table>
-        <p><a class="btn btn-default" onclick="alert('Fruto Registrado')" href="">Ingresar Fruto &raquo;</a></p>
-    </fieldset>
-</form>
+                                </tr>
+                                <tr>
+                                    <td align='center' colspan="4"><hr /></td>
+                                </tr>
+                                <tr align='center'>
+                                    <td align='left' colspan="4">
+                                        <p><a class="btn btn-success btn-lg" onclick="alert('Fruto Registrado')" href="">Ingresar &raquo;</a></p>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
