@@ -23,6 +23,10 @@ namespace EVALUACION_2_TP.Controllers {
         {
             return View();
         }
+        public ActionResult Asignacion_cosecha()
+        {
+            return View();
+        }
         public ActionResult Menu_Opciones()
         {
             return View();
