@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\bddController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -292,6 +293,8 @@
     <Content Include="Views\Home\Registro_Produccion.cshtml" />
     <Content Include="Views\Home\Vista_Usuario.cshtml" />
     <Content Include="Views\Home\Asignacion_cosecha.cshtml" />
+    <Content Include="Views\bdd\respuesta.cshtml" />
+    <Content Include="Views\bdd\vistabdd.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
