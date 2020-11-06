@@ -17,22 +17,22 @@ namespace EVALUACION_2_TP.Controllers
         {
             return View();
         }
-
-        public ActionResult mostrar()
+        [HttpPost]
+        public ActionResult mostrar(string user, string pass)
         {
+            //conexion Emilio
             SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
-            sentencia.CommandText = "select * from usuarios";
+            sentencia.CommandText = "select * from usuarios where nombre = '"+user+"' and clave = '"+pass+"'";
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
-            var mensaje = "";
-            while(dr.Read())
+            var mensaje = "El ususario NO existe";        
+            while (dr.Read())
             {
-                mensaje = mensaje + dr["nombre"].ToString();
-
+                mensaje = "El ususario SI existe";
             }
             ViewBag.mensaje = mensaje;
             con.Close();
