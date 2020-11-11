@@ -20,8 +20,10 @@ namespace EVALUACION_2_TP.Controllers
         [HttpPost]
         public ActionResult mostrar(string user, string pass)
         {
+            //conexion Pablo
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pablosotosaavedra\source\repos\Jlduranv\Agroultra-2.0\bdd_agro.mdf;Integrated Security=True;Connect Timeout=30");
             //conexion Emilio
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
