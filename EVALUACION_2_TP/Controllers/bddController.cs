@@ -18,10 +18,11 @@ namespace EVALUACION_2_TP.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult mostrar(string user, string pass)
+        public ActionResult mostrar(string user, string pass) 
         {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\bdd_agroultra\bdd.mdf;Integrated Security=True;Connect Timeout=30");
             //conexion Emilio
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
