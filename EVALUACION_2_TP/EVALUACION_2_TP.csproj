@@ -223,8 +223,10 @@
     <Content Include="Content\img\control.svg" />
     <Content Include="Content\img\datos.svg" />
     <Content Include="Content\img\disminuye.svg" />
+    <Content Include="Content\img\fondo.png" />
     <Content Include="Content\img\frutos.svg" />
     <Content Include="Content\img\grillas.svg" />
+    <Content Include="Content\img\imagen_footer.svg" />
     <Content Include="Content\img\impresora.svg" />
     <Content Include="Content\img\imprimir.svg" />
     <Content Include="Content\img\informacion.svg" />

@@ -24,9 +24,9 @@ namespace EVALUACION_2_TP.Controllers
             //conexion Pablo
             //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pablosotosaavedra\source\repos\Jlduranv\Agroultra-2.0\bdd_agro.mdf;Integrated Security=True;Connect Timeout=30");
             //conexion Emilio
-            //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //conexion Cintia
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\bdd_agroultra\bdd.mdf");
+            //SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\bdd_agroultra\bdd.mdf");
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
@@ -34,14 +34,18 @@ namespace EVALUACION_2_TP.Controllers
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
-            var mensaje = "El ususario NO existe";        
+            var mensaje = "El ususario  "+ user +" o la contraseña NO existen";
+            string retorno = "/Views/bdd/respu esta.cshtml";
             while (dr.Read())
             {
-                mensaje = "El ususario SI existe";
+                mensaje = "Bienvenido(a) "+ user +"";
+                ViewBag.mensaje = mensaje;
+                retorno = "/Views/Home/Menu_Opciones.cshtml";
+                return View(retorno);
             }
             ViewBag.mensaje = mensaje;
             con.Close();
-            return View("/Views/bdd/respuesta.cshtml");
+            return View(retorno);
         }
     }
 }
