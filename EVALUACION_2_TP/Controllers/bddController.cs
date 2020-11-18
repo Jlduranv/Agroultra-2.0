@@ -26,7 +26,9 @@ namespace EVALUACION_2_TP.Controllers
             //conexion Emilio
             //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //conexion Cintia
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\bdd_agroultra\bdd (1).mdf; Integrated Security = True; Connect Timeout = 30");
+            //SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\bdd_agroultra\bdd.mdf");
+            //JOSE LUIS
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\bdd_agroultra\bdd.mdf");
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
@@ -34,25 +36,18 @@ namespace EVALUACION_2_TP.Controllers
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
-            var mensaje = "El ususario NO existe";
-            if (dr.Read())
+            var mensaje = "El ususario  "+ user +" o la contraseña NO existen";
+            string retorno = "/Views/bdd/respu esta.cshtml";
+            while (dr.Read())
             {
-                string tipo = dr["tipo"].ToString();
-                con.Close();
-                if (tipo == "1")
-                {
-                    return RedirectToAction("Menu_Opciones", "Home");
-                }
-                else
-                {
-                    return RedirectToAction("Menu_Registros", "Home");
-
-                }
+                mensaje = "Bienvenido(a) "+ user +"";
+                ViewBag.mensaje = mensaje;
+                retorno = "/Views/Home/Menu_Opciones.cshtml";
+                return View(retorno);
             }
-
+            ViewBag.mensaje = mensaje;
             con.Close();
-
-            return RedirectToAction("Ingreso", "Home");
+            return View(retorno);
         }
     }
 }
