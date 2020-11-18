@@ -26,7 +26,7 @@ namespace EVALUACION_2_TP.Controllers
             //conexion Emilio
             //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //conexion Cintia
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\bdd_agroultra\bdd.mdf");
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\bdd_agroultra\bdd (1).mdf; Integrated Security = True; Connect Timeout = 30");
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
@@ -34,14 +34,25 @@ namespace EVALUACION_2_TP.Controllers
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
-            var mensaje = "El ususario NO existe";        
-            while (dr.Read())
+            var mensaje = "El ususario NO existe";
+            if (dr.Read())
             {
-                mensaje = "El ususario SI existe";
+                string tipo = dr["tipo"].ToString();
+                con.Close();
+                if (tipo == "1")
+                {
+                    return RedirectToAction("Menu_Opciones", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("Menu_Registros", "Home");
+
+                }
             }
-            ViewBag.mensaje = mensaje;
+
             con.Close();
-            return View("/Views/bdd/respuesta.cshtml");
+
+            return RedirectToAction("Ingreso", "Home");
         }
     }
 }
