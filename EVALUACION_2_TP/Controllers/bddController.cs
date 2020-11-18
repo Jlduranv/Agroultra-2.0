@@ -45,7 +45,7 @@ namespace EVALUACION_2_TP.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Menu_Registros", "Home");
+                    return RedirectToAction("Vista_Usuario", "Home");
 
                 }
             }
