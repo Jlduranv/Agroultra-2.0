@@ -123,6 +123,7 @@
     <Compile Include="BD.cs" />
     <Compile Include="Controllers\bddController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -301,6 +302,9 @@
     <Content Include="Views\bdd\respuesta.cshtml" />
     <Content Include="Views\bdd\vistabdd.cshtml" />
     <Content Include="Views\Home\Consultar_usuarios.cshtml" />
+    <Content Include="Views\Usuarios\Mostrar_Crear.cshtml" />
+    <Content Include="Views\Usuarios\Consultar.cshtml" />
+    <Content Include="Views\Usuarios\Mostrar_Modificar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,9 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Registro_Usuario";
-}
-@{
-    ViewBag.Title = "Registro_Sectores";
+    ViewBag.Title = "CREAR USUARIO";
 }
 <div class="container">
     <div class="row justify-content-center">
@@ -24,7 +21,7 @@
                 </div>
                 <div class="card-body">
                     <fieldset>
-                        <form class="formulario" method="post" action="/bdd/agregarController.cs">
+                        <form class="formulario" method="post" action="/Usuarios/Agregar">
                             <table style="width:100%">
                                 <tr align='center'>
                                     <td>Rut:</td>
@@ -43,20 +40,24 @@
                                     <td>Código:</td>
                                     <td>E-mail:</td>
                                     <td>Teléfono:</td>
-                                <tr align='center'>
+                                    <td>Clave:</td>
+
+                                 <tr align='center'>
                                     <td><input type="text" name="codigo"></td>
-                                    <td><input type="text" name="mail"></td>
+                                    <td><input type="text" name="email"></td>
                                     <td><input type="text" name="telefono"></td>
+                                    <td><input type="text" name="clave"></td>
+
                                 </tr>
                                 <tr>
                                     <td align='center' colspan="3"><hr /></td>
                                 </tr>
                                 <tr align='center'>
-                                    <td><label for="name">Tipo:</label></td>
+                                    <td><label for="name">Nivel:</label></td>
                                     <td>
-                                        <select name="select">
-                                            <option value="Value1">Nivel 1</option>
-                                            <option value="value2" selected>Nivel 2</option>
+                                        <select name="nivel">
+                                            <option value="1">Nivel 1</option>
+                                            <option value="2" selected>Nivel 2</option>
 
                                         </select>
                                     </td>
@@ -67,7 +68,9 @@
                                 </tr>
                                 <tr align='center'>
                                     <td align='left' colspan="3">
-                                        <p><a class="btn btn-info btn-lg" onclick="alert('Usuario Registrado')" href="">AGREGAR &raquo;</a></p>
+                                        <p>
+                                            <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Agregar " />
+                                        </p>
                                     </td>
                                 </tr>
                             </table>
