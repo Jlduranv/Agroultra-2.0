@@ -305,6 +305,18 @@
     <Content Include="Views\Usuarios\Mostrar_Crear.cshtml" />
     <Content Include="Views\Usuarios\Consultar.cshtml" />
     <Content Include="Views\Usuarios\Mostrar_Modificar.cshtml" />
+    <Content Include="Views\Sectores\Consultar.cshtml" />
+    <Content Include="Views\Sectores\Mostrar_Crear.cshtml" />
+    <Content Include="Views\Sectores\Mostrar_Modificar.cshtml" />
+    <Content Include="Views\Frutos\Mostrar_Modificar.cshtml" />
+    <Content Include="Views\Frutos\Mostrar_Crear.cshtml" />
+    <Content Include="Views\Frutos\Consultar.cshtml" />
+    <Content Include="Views\Datos_cosecha\Consultar.cshtml" />
+    <Content Include="Views\Datos_cosecha\Mostrar_Crear.cshtml" />
+    <Content Include="Views\Datos_cosecha\Mostrar_Modificar.cshtml" />
+    <Content Include="Views\Asistencia\Consultar.cshtml" />
+    <Content Include="Views\Asistencia\Mostrar_Crear.cshtml" />
+    <Content Include="Views\Asistencia\Mostrar_Modificar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

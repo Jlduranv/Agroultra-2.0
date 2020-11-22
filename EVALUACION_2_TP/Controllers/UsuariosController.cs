@@ -40,11 +40,11 @@ namespace EVALUACION_2_TP.Controllers
                 mensaje = mensaje + "<td>" + dr["telefono"].ToString();
                 mensaje = mensaje + "<td>" + dr["clave"].ToString();
                 mensaje = mensaje + "<td><a href='/Usuarios/Mostrar_Modificar/" + dr["rut"].ToString() + "'>Modificar </a>";
-                mensaje = mensaje + "<a href = '/Usuarios/Eliminar/" + dr["rut"].ToString() + "'onclick='return confirm(\"Esta seguro?\")'>Eliminar</a>";
+                mensaje = mensaje + "<a href = '/Usuarios/Eliminar/" + dr["rut"].ToString() + "'onclick='return confirm(\"Estas seguro?\")'> Eliminar</a>";
 
             }
             mensaje = mensaje + "</td></tr></table>";
-            ViewBag.mensaje = mensaje;
+            ViewBag.lista = mensaje;
             con.Close();
             return View("/Views/Usuarios/Consultar.cshtml");
         }
@@ -56,9 +56,29 @@ namespace EVALUACION_2_TP.Controllers
         {
             return View("/Views/Usuarios/Mostrar_Crear.cshtml");
         }
-        public ActionResult Eliminar()
+        public ActionResult Eliminar(string id)
         {
-            return View();
+            SqlConnection con = new BD().Conexion();
+            var sentencia = new SqlCommand();
+            sentencia.Connection = con;
+            sentencia.CommandType = System.Data.CommandType.Text;
+            con.Open();
+            sentencia.CommandText = "delete from usuarios where rut = @rut";
+            sentencia.Parameters.Add(new SqlParameter("rut", id));
+            var result = sentencia.ExecuteNonQuery();
+            var mensaje = "";
+            if (result != 0)
+            {
+                mensaje = "USUARIO ELIMINADO";
+            }
+            else
+            {
+                mensaje = "ERROR";
+            }
+            ViewBag.mensaje = mensaje;
+            con.Close();
+            return RedirectToAction("Consultar");
+
         }
 
         public ActionResult Agregar(string rut, string nombre, string apellido, string codigo, int nivel, string email, string telefono, string clave)

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "CREAR USUARIO";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+            <p><a class="btn btn-primary btn-xl" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
+        </div>
+    </div>
+</div>
+<section class="page-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 card shadow mb-4">
+                <div class="card-header py-3 align-middle">
+                    <div class="row text-primary">
+                        <img src="~/Content/img/usuarios.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px " />
+                        <h4 class="m-0 font-weight-bold text-primary">Ingreso Usuario</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <fieldset>
+                        <form class="formulario" method="post" action="/Usuarios/Agregar">
+                            <table style="width:100%">
+                                <tr align='center'>
+                                    <td>Rut:</td>
+                                    <td>Nombre:</td>
+                                    <td>Apellido:</td>
+                                </tr>
+                                <tr align='center'>
+                                    <td><input type="text" name="rut"></td>
+                                    <td><input type="text" name="nombre"></td>
+                                    <td><input type="text" name="apellido"></td>
+                                </tr>
+                                <tr>
+                                    <td align='center' colspan="3"><hr /></td>
+                                </tr>
+                                <tr align='center'>
+                                    <td>Código:</td>
+                                    <td>E-mail:</td>
+                                    <td>Teléfono:</td>
+                                    <td>Clave:</td>
+
+                                 <tr align='center'>
+                                    <td><input type="text" name="codigo"></td>
+                                    <td><input type="text" name="email"></td>
+                                    <td><input type="text" name="telefono"></td>
+                                    <td><input type="text" name="clave"></td>
+
+                                </tr>
+                                <tr>
+                                    <td align='center' colspan="3"><hr /></td>
+                                </tr>
+                                <tr align='center'>
+                                    <td><label for="name">Nivel:</label></td>
+                                    <td>
+                                        <select name="nivel">
+                                            <option value="1">Nivel 1</option>
+                                            <option value="2" selected>Nivel 2</option>
+
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td align='center' colspan="3"><hr /></td>
+                                </tr>
+                                <tr align='center'>
+                                    <td align='left' colspan="3">
+                                        <p>
+                                            <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Agregar " />
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
