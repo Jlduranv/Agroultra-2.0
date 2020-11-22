@@ -24,9 +24,11 @@ namespace EVALUACION_2_TP.Controllers
             //conexion Pablo
             //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pablosotosaavedra\source\repos\Jlduranv\Agroultra-2.0\bdd_agro.mdf;Integrated Security=True;Connect Timeout=30");
             //conexion Emilio
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bdd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //conexion Cintia
             //SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\bdd_agroultra\bdd (1).mdf; Integrated Security = True; Connect Timeout = 30");
+            //jose luis
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\bdd_agroultra\bdd.mdf");
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
@@ -37,9 +39,9 @@ namespace EVALUACION_2_TP.Controllers
             var mensaje = "El usuario NO existe y/o la contraseña es incorrecta";
             if (dr.Read())
             {
-                string tipo = dr["tipo"].ToString();
+                string nivel = dr["nivel"].ToString();
                 //con.Close();
-                if (tipo == "1")
+                if (nivel == "1")
                 {
                     mensaje = "Usuario(a): " + user + "";
                     ViewBag.mensaje = mensaje;
@@ -56,6 +58,11 @@ namespace EVALUACION_2_TP.Controllers
             con.Close();
             ViewBag.mensage = mensaje;
             return View("/Views/bdd/respuesta.cshtml");
+        }
+
+        public ActionResult agregar()
+        {
+            return View();
         }
     }
 }

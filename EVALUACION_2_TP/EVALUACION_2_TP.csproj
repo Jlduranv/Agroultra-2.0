@@ -260,7 +260,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Views\agregar\" />
     <Folder Include="Views\Galeria\" />
+    <Folder Include="Views\USUARIO\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
