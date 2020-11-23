@@ -52,9 +52,34 @@ namespace EVALUACION_2_TP.Controllers
         {
             return View("/Views/Usuarios/Mostrar_Crear.cshtml");
         }
-        public ActionResult Mostrar_Modificar()
+        public ActionResult Mostrar_Modificar(string id)
         {
-            return View("/Views/Usuarios/Mostrar_Crear.cshtml");
+            SqlConnection con = new BD().Conexion();
+            var sentencia = new SqlCommand();
+            SqlDataReader dr;
+            sentencia.Connection = con;
+            sentencia.CommandText = "select * from usuarios where rut = '" + id + "'";
+            sentencia.CommandType = System.Data.CommandType.Text;
+            con.Open();
+            dr = sentencia.ExecuteReader();
+            var mensaje = "Usuario encontrado";
+            if (dr.Read())
+            {
+                ViewBag.rut = dr["rut"].ToString();
+                ViewBag.nombre = dr["nombre"].ToString();
+                ViewBag.apellido = dr["apellido"].ToString();
+                ViewBag.codigo = dr["codigo"].ToString();
+                ViewBag.nivel = dr["nivel"].ToString();
+                ViewBag.email = dr["email"].ToString();
+                ViewBag.telefono = dr["telefono"].ToString();
+                ViewBag.clave = dr["clave"].ToString();
+                return View("/Views/Usuarios/Mostrar_Modificar.cshtml");
+            }
+
+            con.Close();
+            ViewBag.mensage = mensaje;
+
+            return RedirectToAction("Consultar");
         }
         public ActionResult Eliminar(string id)
         {
@@ -112,6 +137,36 @@ namespace EVALUACION_2_TP.Controllers
             return RedirectToAction("Consultar");
 
 
+        }
+        public ActionResult Modificar(string rut, string nombre, string apellido, string codigo, int nivel, string email, string telefono, string clave)
+        {
+            SqlConnection con = new BD().Conexion();
+            var sentencia = new SqlCommand();
+            sentencia.Connection = con;
+            sentencia.CommandType = System.Data.CommandType.Text;
+            con.Open();
+            sentencia.CommandText = "update usuarios set nombre = @nombre, apellido = @apellido, codigo = @codigo, nivel = @nivel, email = @email, telefono = @telefono, clave = @clave where rut = @rut";
+            sentencia.Parameters.Add(new SqlParameter("rut", rut));
+            sentencia.Parameters.Add(new SqlParameter("nombre", nombre));
+            sentencia.Parameters.Add(new SqlParameter("apellido", apellido));
+            sentencia.Parameters.Add(new SqlParameter("codigo", codigo));
+            sentencia.Parameters.Add(new SqlParameter("nivel", nivel));
+            sentencia.Parameters.Add(new SqlParameter("email", email));
+            sentencia.Parameters.Add(new SqlParameter("telefono", telefono));
+            sentencia.Parameters.Add(new SqlParameter("clave", clave));
+            var result = sentencia.ExecuteNonQuery();
+            var mensaje = "";
+            if (result != 0)
+            {
+                mensaje = "REGISTRO MODIFICADO";
+            }
+            else
+            {
+                mensaje = "ERROR";
+            }
+            ViewBag.mensaje = mensaje;
+            con.Close();
+            return RedirectToAction("Consultar");
         }
 
     }

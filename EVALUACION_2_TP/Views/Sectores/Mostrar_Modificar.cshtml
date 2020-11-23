@@ -1,9 +1,19 @@
 ﻿
 @{
     ViewBag.Title = "Mostrar_Modificar";
+    string select1 = "";
+    string select2 = "";
+    if(ViewBag.nivel == "1")
+    {
+        select1 = "selected";
+    }
+    else
+    {
+        select2 = "selected";
+    }
 }
 
-<h2>Mostrar_Modificar</h2>
+<h2>Modificar Usuarios</h2>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -19,22 +29,23 @@
                 <div class="card-header py-3 align-middle">
                     <div class="row text-primary">
                         <img src="~/Content/img/usuarios.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px " />
-                        <h4 class="m-0 font-weight-bold text-primary">Ingreso Usuario</h4>
+                        <h4 class="m-0 font-weight-bold text-primary">Modificar Usuario</h4>
                     </div>
                 </div>
                 <div class="card-body">
                     <fieldset>
-                        <form class="formulario" method="post" action="/bdd/agregarController.cs">
+                        <form class="formulario" method="post" action="/Usuarios/Modificar">
                             <table style="width:100%">
                                 <tr align='center'>
                                     <td>Rut:</td>
                                     <td>Nombre:</td>
                                     <td>Apellido:</td>
+
                                 </tr>
                                 <tr align='center'>
-                                    <td><input type="text" name="rut"></td>
-                                    <td><input type="text" name="nombre"></td>
-                                    <td><input type="text" name="apellido"></td>
+                                    <td><input type="text" name="rut" value="@ViewBag.rut"></td>
+                                    <td><input type="text" name="nombre" value="@ViewBag.nombre"></td>
+                                    <td><input type="text" name="apellido" value="@ViewBag.apellido"></td>
                                 </tr>
                                 <tr>
                                     <td align='center' colspan="3"><hr /></td>
@@ -43,20 +54,24 @@
                                     <td>Código:</td>
                                     <td>E-mail:</td>
                                     <td>Teléfono:</td>
+                                    <td>Clave:</td>
+
                                 <tr align='center'>
-                                    <td><input type="text" name="codigo"></td>
-                                    <td><input type="text" name="mail"></td>
-                                    <td><input type="text" name="telefono"></td>
+                                    <td><input type="text" name="codigo" value="@ViewBag.codigo"></></td>
+                                    <td><input type="text" name="email" value="@ViewBag.email"></></td>
+                                    <td><input type="text" name="telefono" value="@ViewBag.telefono"></></td>
+                                    <td><input type="text" name="clave" value="@ViewBag.clave"></></td>
+
                                 </tr>
                                 <tr>
                                     <td align='center' colspan="3"><hr /></td>
                                 </tr>
                                 <tr align='center'>
-                                    <td><label for="name">Tipo:</label></td>
+                                    <td><label for="name">Nivel:</label></td>
                                     <td>
-                                        <select name="select">
-                                            <option value="Value1">Nivel 1</option>
-                                            <option value="value2" selected>Nivel 2</option>
+                                        <select name="nivel">
+                                            <option value="1" @select1>Nivel 1</option>
+                                            <option value="2" @select2>Nivel 2</option>
 
                                         </select>
                                     </td>
