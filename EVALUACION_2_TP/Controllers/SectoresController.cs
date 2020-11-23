@@ -25,7 +25,7 @@ namespace EVALUACION_2_TP.Controllers
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
-            var mensaje = "<table class='table' border = 3 bgcolor = 'ebbbbb' width = '570' ><tr bgcolor = '975d72' >";
+            var mensaje = "<table class='table' border = 3 bgcolor = '7AFF7A' width = '570'><tr bgcolor = '00CC0A' >";
 
             mensaje = mensaje + "<td> ID SECTORES <td> NOMBRE SECTOR <td> ACCIONES";
             while (dr.Read())

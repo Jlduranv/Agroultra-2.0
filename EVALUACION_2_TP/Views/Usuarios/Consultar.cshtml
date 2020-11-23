@@ -3,18 +3,30 @@
     ViewBag.Title = "Consultar";
 }
 @Html.Raw(ViewBag.mensaje)
-
-
-<h2>Consultar Usuarios</h2>
-<form method="post" action="/Usuarios/Mostrar_Crear">
-    <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Agregar" />
-</form>
-
-@Html.Raw(ViewBag.lista)
-
-<form method="post" action="/Home/Menu_Opciones">
-    <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Atras" />
-</form>
-
-
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+            <p><a class="btn btn-primary btn-xl" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
+        </div>
+    </div>
+</div>
+<section class="page-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 card shadow mb-4">
+                <div class="card-header py-3 align-middle">
+                    <div class="row text-primary">
+                        <img src="~/Content/img/usuarios.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px " />
+                        <h4 class="m-0 font-weight-bold text-primary">Consultar Usuarios</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/Usuarios/Mostrar_Crear">
+                        <input class="btn btn-primary btn-lg" onclick="alert('Usuario agregado')" type="submit" value=" Agregar" />
+                    </form><br />
+                    @Html.Raw(ViewBag.lista)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
