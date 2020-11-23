@@ -59,8 +59,8 @@ namespace EVALUACION_2_TP.Controllers
             var mensaje = "Fruto encontrado";
             if (dr.Read())
             {
-                ViewBag.rut = dr["id_fruto"].ToString();
-                ViewBag.nombre = dr["tipo_fruto"].ToString();
+                ViewBag.id_fruto = dr["id_fruto"].ToString();
+                ViewBag.tipo_fruto = dr["tipo_fruto"].ToString();
                 return View("/Views/Frutos/Mostrar_Modificar.cshtml");
             }
 
@@ -94,7 +94,7 @@ namespace EVALUACION_2_TP.Controllers
 
         }
 
-        public ActionResult Agregar(string id_fruto, string fruto)
+        public ActionResult Agregar(int id_fruto, string fruto)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
@@ -120,14 +120,14 @@ namespace EVALUACION_2_TP.Controllers
 
 
         }
-        public ActionResult Modificar(string id_fruto, string tipo_fruto)
+        public ActionResult Modificar(int id_fruto, string tipo_fruto)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
             sentencia.Connection = con;
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
-            sentencia.CommandText = "update usuarios set tipo_fruto = @tipo_fruto, where id_fruto = @id_fruto";
+            sentencia.CommandText = "update frutos set tipo_fruto = @tipo_fruto where id_fruto = @id_fruto";
             sentencia.Parameters.Add(new SqlParameter("id_fruto", id_fruto));
             sentencia.Parameters.Add(new SqlParameter("tipo_fruto", tipo_fruto));
             var result = sentencia.ExecuteNonQuery();

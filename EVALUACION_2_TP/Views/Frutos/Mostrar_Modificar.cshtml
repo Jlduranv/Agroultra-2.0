@@ -1,14 +1,24 @@
 ﻿
 @{
     ViewBag.Title = "Mostrar_Modificar";
+    string select1 = "";
+    string select2 = "";
+    if (ViewBag.tipo_fruto == "1")
+    {
+        select1 = "selected";
+    }
+    else
+    {
+        select2 = "selected";
+    }
 }
 
-<h2>Mostrar_Modificar</h2>
+<h2>Modificar Usuarios</h2>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
-            <p><a class="btn btn-primary btn-xl" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
+            <p><a class="btn btn-primary btn-xl" href="/Frutos/Consultar">Atrás &raquo;</a></p>
         </div>
     </div>
 </div>
@@ -19,29 +29,34 @@
                 <div class="card-header py-3 align-middle">
                     <div class="row text-primary">
                         <img src="~/Content/img/usuarios.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px " />
-                        <h4 class="m-0 font-weight-bold text-primary">Ingreso Usuario</h4>
+                        <h4 class="m-0 font-weight-bold text-primary">Modificar Frutos</h4>
                     </div>
                 </div>
                 <div class="card-body">
                     <fieldset>
-                        <form class="formulario" method="post" action="/bdd/FrutosController.cs">
+                        <form class="formulario" method="post" action="/Frutos/Modificar">
                             <table style="width:100%">
                                 <tr align='center'>
-                                    <td>Id Fruto:</td>
+                                    <td>ID Fruto:</td>
+
                                 </tr>
                                 <tr align='center'>
-                                    <td><input type="text" name="id_fruto"></td>
+                                    <td><input type="text" name="id_fruto" value="@ViewBag.id_fruto"></td>
                                 </tr>
                                 <tr>
                                     <td align='center' colspan="3"><hr /></td>
                                 </tr>
-                                
+                             
+                         
+                                <tr>
+                                    <td align='center' colspan="3"><hr /></td>
+                                </tr>
                                 <tr align='center'>
-                                    <td><label for="name">Fruto:</label></td>
+                                    <td><label for="name">Tipo de fruto:</label></td>
                                     <td>
-                                        <select name="fruto">
-                                            <option value="1">Arandanos</option>
-                                            <option value="2" selected>Cerezos</option>
+                                        <select name="tipo_fruto">
+                                            <option value="Arandano" @select1>Arandanos</option>
+                                            <option value="Cerezos" @select2>Cerezos</option>
 
                                         </select>
                                     </td>
@@ -52,7 +67,7 @@
                                 </tr>
                                 <tr align='center'>
                                     <td align='left' colspan="3">
-                                        <p><a class="btn btn-info btn-lg" onclick="alert('Usuario Registrado')" href="">AGREGAR &raquo;</a></p>
+                                        <p> <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Modificar " /></p>
                                     </td>
                                 </tr>
                             </table>
@@ -63,3 +78,4 @@
         </div>
     </div>
 </section>
+
