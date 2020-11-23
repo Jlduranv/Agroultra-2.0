@@ -46,13 +46,13 @@ namespace EVALUACION_2_TP.Controllers
         {
             return View("/Views/Frutos/Mostrar_Crear.cshtml");
         }
-        public ActionResult Mostrar_Modificar(string id_fruto)
+        public ActionResult Mostrar_Modificar(string id)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
-            sentencia.CommandText = "select * from frutos where id_fruto = '" + id_fruto + "'";
+            sentencia.CommandText = "select * from frutos where id_fruto = '" + id + "'";
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
@@ -69,7 +69,7 @@ namespace EVALUACION_2_TP.Controllers
 
             return RedirectToAction("Consultar");
         }
-        public ActionResult Eliminar(string id_fruto)
+        public ActionResult Eliminar(string id)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
@@ -77,7 +77,7 @@ namespace EVALUACION_2_TP.Controllers
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             sentencia.CommandText = "delete from frutos where id_fruto = @id_fruto";
-            sentencia.Parameters.Add(new SqlParameter("id_fruto", id_fruto));
+            sentencia.Parameters.Add(new SqlParameter("id_fruto", id));
             var result = sentencia.ExecuteNonQuery();
             var mensaje = "";
             if (result != 0)
@@ -94,7 +94,7 @@ namespace EVALUACION_2_TP.Controllers
 
         }
 
-        public ActionResult Agregar(string id_fruto, string tipo_fruto)
+        public ActionResult Agregar(string id_fruto, string fruto)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
@@ -103,7 +103,7 @@ namespace EVALUACION_2_TP.Controllers
             con.Open();
             sentencia.CommandText = "insert into frutos (id_fruto,tipo_fruto) values (@id_fruto, @tipo_fruto)";
             sentencia.Parameters.Add(new SqlParameter("id_fruto", id_fruto));
-            sentencia.Parameters.Add(new SqlParameter("tipo_fruto", tipo_fruto));
+            sentencia.Parameters.Add(new SqlParameter("tipo_fruto",fruto));
             var result = sentencia.ExecuteNonQuery();
             var mensaje = "";
             if (result != 0)
