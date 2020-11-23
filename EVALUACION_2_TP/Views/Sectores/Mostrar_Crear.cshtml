@@ -21,43 +21,25 @@
                 </div>
                 <div class="card-body">
                     <fieldset>
-                        <form class="formulario" method="post" action="/Usuarios/Agregar">
+                        <form class="formulario" method="post" action="/Sectores/Agregar">
                             <table style="width:100%">
                                 <tr align='center'>
-                                    <td>Rut:</td>
-                                    <td>Nombre:</td>
-                                    <td>Apellido:</td>
+                                    <td>ID Sector:</td>
+
                                 </tr>
                                 <tr align='center'>
-                                    <td><input type="text" name="rut"></td>
-                                    <td><input type="text" name="nombre"></td>
-                                    <td><input type="text" name="apellido"></td>
+                                    <td><input type="text" name="Id_sector" value="@ViewBag.Id_sector"></td>
                                 </tr>
                                 <tr>
                                     <td align='center' colspan="3"><hr /></td>
                                 </tr>
-                                <tr align='center'>
-                                    <td>Código:</td>
-                                    <td>E-mail:</td>
-                                    <td>Teléfono:</td>
-                                    <td>Clave:</td>
 
-                                 <tr align='center'>
-                                    <td><input type="text" name="codigo"></td>
-                                    <td><input type="text" name="email"></td>
-                                    <td><input type="text" name="telefono"></td>
-                                    <td><input type="text" name="clave"></td>
-
-                                </tr>
-                                <tr>
-                                    <td align='center' colspan="3"><hr /></td>
-                                </tr>
                                 <tr align='center'>
-                                    <td><label for="name">Nivel:</label></td>
+                                    <td><label for="name">Sectores:</label></td>
                                     <td>
-                                        <select name="nivel">
-                                            <option value="1">Nivel 1</option>
-                                            <option value="2" selected>Nivel 2</option>
+                                        <select name="nombre">
+                                            <option value="Sector 1" @select1>Sector 1</option>
+                                            <option value="Sector 2" @select2>Sector 2</option>
 
                                         </select>
                                     </td>
@@ -68,9 +50,7 @@
                                 </tr>
                                 <tr align='center'>
                                     <td align='left' colspan="3">
-                                        <p>
-                                            <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Agregar " />
-                                        </p>
+                                        <p> <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Modificar " /></p>
                                     </td>
                                 </tr>
                             </table>
