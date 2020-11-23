@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace EVALUACION_2_TP.Controllers
 {
-    public class SecController : Controller
+    public class SectoresController : Controller
     {
         // GET: Usuarios
         public ActionResult Index()
@@ -56,7 +56,7 @@ namespace EVALUACION_2_TP.Controllers
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
-            var mensaje = "Fruto encontrado";
+            var mensaje = "Sector encontrado";
             if (dr.Read())
             {
                 ViewBag.Id_sectores = dr["Id_sectores"].ToString();
@@ -82,7 +82,7 @@ namespace EVALUACION_2_TP.Controllers
             var mensaje = "";
             if (result != 0)
             {
-                mensaje = "USUARIO ELIMINADO";
+                mensaje = "SECTOR ELIMINADO";
             }
             else
             {
@@ -108,7 +108,7 @@ namespace EVALUACION_2_TP.Controllers
             var mensaje = "";
             if (result != 0)
             {
-                mensaje = "REGISTRO GRABADO";
+                mensaje = "SECTOR GRABADO";
             }
             else
             {
@@ -134,7 +134,7 @@ namespace EVALUACION_2_TP.Controllers
             var mensaje = "";
             if (result != 0)
             {
-                mensaje = "REGISTRO MODIFICADO";
+                mensaje = "SECTOR MODIFICADO";
             }
             else
             {
