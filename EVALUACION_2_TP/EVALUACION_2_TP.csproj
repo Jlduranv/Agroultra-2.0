@@ -121,7 +121,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BD.cs" />
+    <Compile Include="Controllers\AsistenciaController.cs" />
     <Compile Include="Controllers\bddController.cs" />
+    <Compile Include="Controllers\Datos_cosechaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FrutosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />

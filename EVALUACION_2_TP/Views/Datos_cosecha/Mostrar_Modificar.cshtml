@@ -1,80 +1,76 @@
 ﻿
-@{
-    ViewBag.Title = "Mostrar_Modificar";
-}
 
-<h2>Mostrar_Modificar</h2>
+    @{
+        ViewBag.Title = "Mostrar_Modificar";
+     
+    }
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-12 text-center">
-            <p><a class="btn btn-primary btn-xl" href="/Home/Menu_Opciones">Volver al Menu &raquo;</a></p>
-        </div>
-    </div>
-</div>
-<section class="page-section">
+    <h2>Modificar Datos Cosecha</h2>
+
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 card shadow mb-4">
-                <div class="card-header py-3 align-middle">
-                    <div class="row text-primary">
-                        <img src="~/Content/img/usuarios.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px " />
-                        <h4 class="m-0 font-weight-bold text-primary">Ingreso Usuario</h4>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <fieldset>
-                        <form class="formulario" method="post" action="/bdd/agregarController.cs">
-                            <table style="width:100%">
-                                <tr align='center'>
-                                    <td>Rut:</td>
-                                    <td>Nombre:</td>
-                                    <td>Apellido:</td>
-                                </tr>
-                                <tr align='center'>
-                                    <td><input type="text" name="rut"></td>
-                                    <td><input type="text" name="nombre"></td>
-                                    <td><input type="text" name="apellido"></td>
-                                </tr>
-                                <tr>
-                                    <td align='center' colspan="3"><hr /></td>
-                                </tr>
-                                <tr align='center'>
-                                    <td>Código:</td>
-                                    <td>E-mail:</td>
-                                    <td>Teléfono:</td>
-                                <tr align='center'>
-                                    <td><input type="text" name="codigo"></td>
-                                    <td><input type="text" name="mail"></td>
-                                    <td><input type="text" name="telefono"></td>
-                                </tr>
-                                <tr>
-                                    <td align='center' colspan="3"><hr /></td>
-                                </tr>
-                                <tr align='center'>
-                                    <td><label for="name">Tipo:</label></td>
-                                    <td>
-                                        <select name="select">
-                                            <option value="Value1">Nivel 1</option>
-                                            <option value="value2" selected>Nivel 2</option>
-
-                                        </select>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td align='center' colspan="3"><hr /></td>
-                                </tr>
-                                <tr align='center'>
-                                    <td align='left' colspan="3">
-                                        <p><a class="btn btn-info btn-lg" onclick="alert('Usuario Registrado')" href="">AGREGAR &raquo;</a></p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                    </fieldset>
-                </div>
+            <div class="col-lg-12 text-center">
+                <p><a class="btn btn-primary btn-xl" href="/Datos_cosecha/Consultar">Atrás &raquo;</a></p>
             </div>
         </div>
     </div>
-</section>
+    <section class="page-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 card shadow mb-4">
+                    <div class="card-header py-3 align-middle">
+                        <div class="row text-primary">
+                            <img src="~/Content/img/usuarios.svg" alt="Control" style="width:auto; height:25px; padding: 0px 6px " />
+                            <h4 class="m-0 font-weight-bold text-primary">Modificar Datos Cosecha</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <fieldset>
+                            <form class="formulario" method="post" action="/Datos_cosecha/Modificar">
+                                <table style="width:100%">
+                                    <tr align='center'>
+                                        <td>ID Cosecha:</td>
+                                        <td>Kilos:</td>
+                                        <td>Fecha:</td>
+
+                                    </tr>
+                                    <tr align='center'>
+                                        <td><input type="text" name="id_cosecha" value="@ViewBag.id_cosecha"></td>
+                                        <td><input type="text" name="kilos" value="@ViewBag.kilos"></td>
+                                        <td><input type="text" name="fecha" value="@ViewBag.fecha"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align='center' colspan="3"><hr /></td>
+                                    </tr>
+                                    <tr align='center'>
+                                        <td>Hora:</td>
+                                      
+
+                                    <tr align='center'>
+                                        <td><input type="text" name="hora" value="@ViewBag.hora"></></td>
+                                     
+                                    </tr>
+                                    <tr>
+                                        <td align='center' colspan="3"><hr /></td>
+                                    </tr>
+                                    <tr align='center'>
+                  
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td align='center' colspan="3"><hr /></td>
+                                    </tr>
+                                    <tr align='center'>
+                                        <td align='left' colspan="3">
+                                            <p> <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Modificar " /></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+

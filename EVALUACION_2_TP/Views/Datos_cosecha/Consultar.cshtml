@@ -3,11 +3,12 @@
     ViewBag.Title = "Consultar";
 }
 
-<h2>Consultar</h2>
-<form method="post" action="/Usuarios/Mostrar_Crear">
+<h2>Consultar Datos Cosecha</h2>
+<form method="post" action="/Datos_cosecha/Mostrar_Crear">
     <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Agregar" />
 </form>
-    @Html.Raw(ViewBag.mensaje)
-
-
-
+@Html.Raw(ViewBag.mensaje)
+<form method="post" action="/Home/Menu_Opciones">
+    <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Atras" />
+</form>
+@Html.Raw(ViewBag.lista)
