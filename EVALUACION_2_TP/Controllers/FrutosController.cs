@@ -27,51 +27,83 @@ namespace EVALUACION_2_TP.Controllers
             dr = sentencia.ExecuteReader();
             var mensaje = "<table class='table' border = 3 bgcolor = 'ebbbbb' width = '570' ><tr bgcolor = '975d72' >";
 
-            mensaje = mensaje + "<td> RUT <td> ID FRUTOS <td> FRUTOS <td> ACCIONES";
+            mensaje = mensaje + "<td> ID FRUTOS <td> FRUTOS <td> ACCIONES";
             while (dr.Read())
             {
 
                 mensaje = mensaje + "<tr><td>" + dr["id_fruto"].ToString();
                 mensaje = mensaje + "<td>" + dr["tipo_fruto"].ToString();
-               
-                mensaje = mensaje + "<td><a href='/Usuarios/Mostrar_Modificar/" + dr["id_frutos"].ToString() + "'>Modificar </a>";
-                mensaje = mensaje + "<a href = '/Usuarios/Eliminar/" + dr["id_frutos"].ToString() + "'onclick='return confirm(\"Esta seguro?\")'>Eliminar</a>";
+                mensaje = mensaje + "<td><a href='/Frutos/Mostrar_Modificar/" + dr["id_fruto"].ToString() + "'>Modificar </a>";
+                mensaje = mensaje + "<a href = '/Frutos/Eliminar/" + dr["id_fruto"].ToString() + "'onclick='return confirm(\"Estas seguro?\")'> Eliminar</a>";
 
             }
             mensaje = mensaje + "</td></tr></table>";
-            ViewBag.mensaje = mensaje;
+            ViewBag.lista = mensaje;
             con.Close();
-            return View("/Views/Usuarios/Consultar.cshtml");
+            return View("/Views/Frutos/Consultar.cshtml");
         }
         public ActionResult Mostrar_Crear()
         {
-            return View("/Views/Usuarios/Mostrar_Crear.cshtml");
+            return View("/Views/Frutos/Mostrar_Crear.cshtml");
         }
-        public ActionResult Mostrar_Modificar()
+        public ActionResult Mostrar_Modificar(string id_fruto)
         {
-            return View("/Views/Usuarios/Mostrar_Crear.cshtml");
-        }
-        public ActionResult Eliminar()
-        {
-            return View();
-        }
+            SqlConnection con = new BD().Conexion();
+            var sentencia = new SqlCommand();
+            SqlDataReader dr;
+            sentencia.Connection = con;
+            sentencia.CommandText = "select * from frutos where id_fruto = '" + id_fruto + "'";
+            sentencia.CommandType = System.Data.CommandType.Text;
+            con.Open();
+            dr = sentencia.ExecuteReader();
+            var mensaje = "Fruto encontrado";
+            if (dr.Read())
+            {
+                ViewBag.rut = dr["id_fruto"].ToString();
+                ViewBag.nombre = dr["tipo_fruto"].ToString();
+                return View("/Views/Frutos/Mostrar_Modificar.cshtml");
+            }
 
-        public ActionResult Agregar(string rut, string nombre, string apellido, string codigo, int nivel, string email, string telefono, string clave)
+            con.Close();
+            ViewBag.mensage = mensaje;
+
+            return RedirectToAction("Consultar");
+        }
+        public ActionResult Eliminar(string id_fruto)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
             sentencia.Connection = con;
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
-            sentencia.CommandText = "insert into usuarios (rut,nombre, apellido, codigo, nivel, email, telefono, clave) values (@rut, @nombre, @apellido, @codigo, @nivel, @email, @telefono, @clave)";
-            sentencia.Parameters.Add(new SqlParameter("rut", rut));
-            sentencia.Parameters.Add(new SqlParameter("nombre", nombre));
-            sentencia.Parameters.Add(new SqlParameter("apellido", apellido));
-            sentencia.Parameters.Add(new SqlParameter("codigo", codigo));
-            sentencia.Parameters.Add(new SqlParameter("nivel", nivel));
-            sentencia.Parameters.Add(new SqlParameter("email", email));
-            sentencia.Parameters.Add(new SqlParameter("telefono", telefono));
-            sentencia.Parameters.Add(new SqlParameter("clave", clave));
+            sentencia.CommandText = "delete from frutos where id_fruto = @id_fruto";
+            sentencia.Parameters.Add(new SqlParameter("id_fruto", id_fruto));
+            var result = sentencia.ExecuteNonQuery();
+            var mensaje = "";
+            if (result != 0)
+            {
+                mensaje = "USUARIO ELIMINADO";
+            }
+            else
+            {
+                mensaje = "ERROR";
+            }
+            ViewBag.mensaje = mensaje;
+            con.Close();
+            return RedirectToAction("Consultar");
+
+        }
+
+        public ActionResult Agregar(string id_fruto, string tipo_fruto)
+        {
+            SqlConnection con = new BD().Conexion();
+            var sentencia = new SqlCommand();
+            sentencia.Connection = con;
+            sentencia.CommandType = System.Data.CommandType.Text;
+            con.Open();
+            sentencia.CommandText = "insert into frutos (id_fruto,tipo_fruto) values (@id_fruto, @tipo_fruto)";
+            sentencia.Parameters.Add(new SqlParameter("id_fruto", id_fruto));
+            sentencia.Parameters.Add(new SqlParameter("tipo_fruto", tipo_fruto));
             var result = sentencia.ExecuteNonQuery();
             var mensaje = "";
             if (result != 0)
@@ -87,6 +119,30 @@ namespace EVALUACION_2_TP.Controllers
             return RedirectToAction("Consultar");
 
 
+        }
+        public ActionResult Modificar(string id_fruto, string tipo_fruto)
+        {
+            SqlConnection con = new BD().Conexion();
+            var sentencia = new SqlCommand();
+            sentencia.Connection = con;
+            sentencia.CommandType = System.Data.CommandType.Text;
+            con.Open();
+            sentencia.CommandText = "update usuarios set tipo_fruto = @tipo_fruto, where id_fruto = @id_fruto";
+            sentencia.Parameters.Add(new SqlParameter("id_fruto", id_fruto));
+            sentencia.Parameters.Add(new SqlParameter("tipo_fruto", tipo_fruto));
+            var result = sentencia.ExecuteNonQuery();
+            var mensaje = "";
+            if (result != 0)
+            {
+                mensaje = "REGISTRO MODIFICADO";
+            }
+            else
+            {
+                mensaje = "ERROR";
+            }
+            ViewBag.mensaje = mensaje;
+            con.Close();
+            return RedirectToAction("Consultar");
         }
 
     }
