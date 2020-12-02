@@ -29,13 +29,13 @@
                             <form class="formulario" method="post" action="/Datos_cosecha/Modificar">
                                 <table style="width:100%">
                                     <tr align='center'>
-                                        <td>ID Cosecha:</td>
+                                        <td>Rut:</td>
                                         <td>Kilos:</td>
                                         <td>Fecha:</td>
 
                                     </tr>
                                     <tr align='center'>
-                                        <td><input type="text" name="id_cosecha" value="@ViewBag.id_cosecha"></td>
+                                        <td><input type="text" name="rut" value="@ViewBag.rut"></td>
                                         <td><input type="text" name="kilos" value="@ViewBag.kilos"></td>
                                         <td><input type="text" name="fecha" value="@ViewBag.fecha"></td>
                                     </tr>
@@ -48,7 +48,16 @@
 
                                     <tr align='center'>
                                         <td><input type="text" name="hora" value="@ViewBag.hora"></></td>
-                                     
+
+                                        <td align='center'>
+                                            <label for="name">Fruto:</label>
+                                            <select name="fruto" value="@ViewBag.fruto">
+                                                <option value="Fresa">Fresa</option>
+                                                <option value="Arándano" selected>Arándano</option>
+                                                <option value="Mora">Mora</option>
+                                            </select>
+                                        </td>
+
                                     </tr>
                                     <tr>
                                         <td align='center' colspan="3"><hr /></td>

@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVALUACION_2_TP", "EVALUACION_2_TP\EVALUACION_2_TP.csproj", "{ACBF275E-F10D-4053-A1D8-62C12B7C2522}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{94B1B79B-82F3-4580-B11A-C013DC15D4AB}"
+	ProjectSection(SolutionItems) = preProject
+		EVALUACION_2_TP\Content\css\bootstrap.min.css = EVALUACION_2_TP\Content\css\bootstrap.min.css
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

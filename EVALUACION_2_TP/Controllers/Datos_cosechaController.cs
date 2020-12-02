@@ -27,16 +27,17 @@ namespace EVALUACION_2_TP.Controllers
             dr = sentencia.ExecuteReader();
             var mensaje = "<table class='table' border = 3 bgcolor = '7AFF7A' width = '570'><tr bgcolor = '00CC0A' >";
            
-            mensaje = mensaje + "<td> ID COSECHA <td> KILOS <td> FECHA <td> HORA <td> ACCIONES";
+            mensaje = mensaje + "<td> RUT <td> KILOS <td> FECHA <td> HORA <td> FRUTO <td>ACCIONES";
             while (dr.Read())
             {
 
-                mensaje = mensaje + "<tr><td>" + dr["id_cosecha"].ToString();
+                mensaje = mensaje + "<tr><td>" + dr["rut"].ToString();
                 mensaje = mensaje + "<td>" + dr["kilos"].ToString();
                 mensaje = mensaje + "<td>" + dr["fecha"].ToString();
                 mensaje = mensaje + "<td>" + dr["hora"].ToString();
-                mensaje = mensaje + "<td><a href='/Datos_cosecha/Mostrar_Modificar/" + dr["id_cosecha"].ToString() + "'>Modificar </a>";
-                mensaje = mensaje + "<a href = '/Datos_cosecha/Eliminar/" + dr["id_cosecha"].ToString() + "'onclick='return confirm(\"Estas seguro?\")'> Eliminar</a>";
+                mensaje = mensaje + "<td>" + dr["tipo_fruto"].ToString();
+                mensaje = mensaje + "<td><a href='/Datos_cosecha/Mostrar_Modificar/" + dr["rut"].ToString() + "'>Modificar </a>";
+                mensaje = mensaje + "<a href = '/Datos_cosecha/Eliminar/" + dr["rut"].ToString() + "'onclick='return confirm(\"Estas seguro?\")'> Eliminar</a>";
 
             }
             mensaje = mensaje + "</td></tr></table>";
@@ -54,17 +55,18 @@ namespace EVALUACION_2_TP.Controllers
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
-            sentencia.CommandText = "select * from datos_cosecha where id_cosecha = '" + id + "'";
+            sentencia.CommandText = "select * from datos_cosecha where rut = '" + id + "'";
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
             var mensaje = "Usuario encontrado";
             if (dr.Read())
             {
-                ViewBag.id_cosecha = dr["id_cosecha"].ToString();
+                ViewBag.rut = dr["rut"].ToString();
                 ViewBag.kilos = dr["kilos"].ToString();
                 ViewBag.fecha = dr["fecha"].ToString();
                 ViewBag.hora = dr["hora"].ToString();
+                ViewBag.fruto = dr["tipo_fruto"].ToString();
                 return View("/Views/Datos_cosecha/Mostrar_Modificar.cshtml");
             }
 
@@ -80,8 +82,8 @@ namespace EVALUACION_2_TP.Controllers
             sentencia.Connection = con;
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
-            sentencia.CommandText = "delete from datos_cosecha where id_cosecha = @id_cosecha";
-            sentencia.Parameters.Add(new SqlParameter("id_cosecha", id));
+            sentencia.CommandText = "delete from datos_cosecha where rut = @rut";
+            sentencia.Parameters.Add(new SqlParameter("rut", id));
             var result = sentencia.ExecuteNonQuery();
             var mensaje = "";
             if (result != 0)
@@ -98,18 +100,19 @@ namespace EVALUACION_2_TP.Controllers
 
         }
 
-        public ActionResult Agregar(int id_cosecha, string kilos, string fecha, string hora)
+        public ActionResult Agregar(string rut, string kilos, string fecha, string hora, string fruto)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
             sentencia.Connection = con;
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
-            sentencia.CommandText = "insert into datos_cosecha (id_cosecha, kilos, fecha, hora) values (@id_cosecha, @kilos, @fecha, @hora)";
-            sentencia.Parameters.Add(new SqlParameter("id_cosecha", id_cosecha));
+            sentencia.CommandText = "insert into datos_cosecha (rut, kilos, fecha, hora, tipo_fruto) values (@rut, @kilos, @fecha, @hora, @fruto)";
+            sentencia.Parameters.Add(new SqlParameter("rut", rut));
             sentencia.Parameters.Add(new SqlParameter("kilos", kilos));
             sentencia.Parameters.Add(new SqlParameter("fecha", fecha));
             sentencia.Parameters.Add(new SqlParameter("hora", hora));
+            sentencia.Parameters.Add(new SqlParameter("fruto", fruto));
             var result = sentencia.ExecuteNonQuery();
             var mensaje = "";
             if (result != 0)
@@ -126,18 +129,19 @@ namespace EVALUACION_2_TP.Controllers
 
 
         }
-        public ActionResult Modificar(int id_cosecha, string kilos, string fecha, string hora)
+        public ActionResult Modificar(string rut, string kilos, string fecha, string hora, string fruto)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
             sentencia.Connection = con;
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
-            sentencia.CommandText = "update datos_cosecha set kilos = @kilos, fecha = @fecha, hora = @hora where id_cosecha = @id_cosecha";
-            sentencia.Parameters.Add(new SqlParameter("id_cosecha", id_cosecha));
+            sentencia.CommandText = "update datos_cosecha set kilos = @kilos, fecha = @fecha, hora = @hora, tipo_fruto = @fruto where rut = @rut";
+            sentencia.Parameters.Add(new SqlParameter("rut", rut));
             sentencia.Parameters.Add(new SqlParameter("kilos", kilos));
             sentencia.Parameters.Add(new SqlParameter("fecha", fecha));
             sentencia.Parameters.Add(new SqlParameter("hora", hora));
+            sentencia.Parameters.Add(new SqlParameter("fruto", fruto));
             var result = sentencia.ExecuteNonQuery();
             var mensaje = "";
             if (result != 0)

@@ -27,15 +27,15 @@ namespace EVALUACION_2_TP.Controllers
             dr = sentencia.ExecuteReader();
             var mensaje = "<table class='table' border = 3 bgcolor = '7AFF7A' width = '570'><tr bgcolor = '00CC0A' >";
 
-            mensaje = mensaje + "<td> ID Asistencia <td> Hora de entrada <td> Hora de salida <td> Acciones";
+            mensaje = mensaje + "<td> Rut <td> Hora de entrada <td> Hora de salida <td> Acciones";
             while (dr.Read())
             {
 
-                mensaje = mensaje + "<tr><td>" + dr["id_asistencia"].ToString();
+                mensaje = mensaje + "<tr><td>" + dr["rut"].ToString();
                 mensaje = mensaje + "<td>" + dr["hora_entrada"].ToString();
                 mensaje = mensaje + "<td>" + dr["hora_salida"].ToString();
-                mensaje = mensaje + "<td><a href='/Asistencia/Mostrar_Modificar/" + dr["id_asistencia"].ToString() + "'>Modificar </a>";
-                mensaje = mensaje + "<a href = '/Asistencia/Eliminar/" + dr["id_asistencia"].ToString() + "'onclick='return confirm(\"Estas seguro?\")'> Eliminar</a>";
+                mensaje = mensaje + "<td><a href='/Asistencia/Mostrar_Modificar/" + dr["rut"].ToString() + "'>Modificar </a>";
+                mensaje = mensaje + "<a href = '/Asistencia/Eliminar/" + dr["rut"].ToString() + "'onclick='return confirm(\"Estas seguro?\")'> Eliminar</a>";
 
             }
             mensaje = mensaje + "</td></tr></table>";
@@ -53,16 +53,16 @@ namespace EVALUACION_2_TP.Controllers
             var sentencia = new SqlCommand();
             SqlDataReader dr;
             sentencia.Connection = con;
-            sentencia.CommandText = "select * from asistencia where id_asistencia = '" + id + "'";
+            sentencia.CommandText = "select * from asistencia where rut = '" + id + "'";
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
             dr = sentencia.ExecuteReader();
             var mensaje = "Asistencia encontrada";
             if (dr.Read())
             {
-                ViewBag.id_asistencia = dr["id_asistencia"].ToString();
+                ViewBag.rut = dr["rut"].ToString();
                 ViewBag.hora_entrada = dr["hora_entrada"].ToString();
-                ViewBag.hora_fecha = dr["hora_salida"].ToString();
+                ViewBag.hora_salida = dr["hora_salida"].ToString();
                 return View("/Views/Asistencia/Mostrar_Modificar.cshtml");
             }
 
@@ -78,8 +78,8 @@ namespace EVALUACION_2_TP.Controllers
             sentencia.Connection = con;
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
-            sentencia.CommandText = "delete from asistencia where id_asistencia = @id_asistencia";
-            sentencia.Parameters.Add(new SqlParameter("id_asistencia", id));
+            sentencia.CommandText = "delete from asistencia where rut = @rut";
+            sentencia.Parameters.Add(new SqlParameter("rut", id));
             var result = sentencia.ExecuteNonQuery();
             var mensaje = "";
             if (result != 0)
@@ -96,15 +96,15 @@ namespace EVALUACION_2_TP.Controllers
 
         }
 
-        public ActionResult Agregar(int id_asistencia, string hora_entrada, string hora_salida)
+        public ActionResult Agregar(string rut, string hora_entrada, string hora_salida)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
             sentencia.Connection = con;
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
-            sentencia.CommandText = "insert into asistencia (id_asistencia, hora_entrada, hora_salida) values (@id_asistencia, @hora_entrada, @hora_salida)";
-            sentencia.Parameters.Add(new SqlParameter("id_asistencia", id_asistencia));
+            sentencia.CommandText = "insert into asistencia (rut, hora_entrada, hora_salida) values (@rut, @hora_entrada, @hora_salida)";
+            sentencia.Parameters.Add(new SqlParameter("rut", rut));
             sentencia.Parameters.Add(new SqlParameter("hora_entrada", hora_entrada));
             sentencia.Parameters.Add(new SqlParameter("hora_salida", hora_salida));
             var result = sentencia.ExecuteNonQuery();
@@ -123,17 +123,17 @@ namespace EVALUACION_2_TP.Controllers
 
 
         }
-        public ActionResult Modificar(int id_asistencia, string hora_entrada, string hora_salida)
+        public ActionResult Modificar(string rut, string hora_entrada, string hora_salida)
         {
             SqlConnection con = new BD().Conexion();
             var sentencia = new SqlCommand();
             sentencia.Connection = con;
             sentencia.CommandType = System.Data.CommandType.Text;
             con.Open();
-            sentencia.CommandText = "update asistencia set hora_entrada = @hora_entrada, hora_salida = @hora_salida where id_asistencia = @id_asistencia";
-            sentencia.Parameters.Add(new SqlParameter("id_asistencia", id_asistencia));
+            sentencia.CommandText = "update asistencia set hora_entrada = @hora_entrada, hora_salida = @hora_salida where rut = @rut";
+            sentencia.Parameters.Add(new SqlParameter("rut", rut));
             sentencia.Parameters.Add(new SqlParameter("hora_entrada", hora_entrada));
-            sentencia.Parameters.Add(new SqlParameter("hora_salida",hora_salida));
+            sentencia.Parameters.Add(new SqlParameter("hora_salida", hora_salida));
             var result = sentencia.ExecuteNonQuery();
             var mensaje = "";
             if (result != 0)

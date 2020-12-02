@@ -24,12 +24,12 @@
                         <form class="formulario" method="post" action="/Datos_cosecha/Agregar">
                             <table style="width:100%">
                                 <tr align='center'>
-                                    <td>ID Cosecha:</td>
+                                    <td>Rut:</td>
                                     <td>Kilos:</td>
                                     <td>Fecha:</td>
                                 </tr>
                                 <tr align='center'>
-                                    <td><input type="text" name="id_cosecha"></td>
+                                    <td><input type="text" name="rut"></td>
                                     <td><input type="text" name="kilos"></td>
                                     <td><input type="text" name="fecha"></td>
                                 </tr>
@@ -42,9 +42,15 @@
 
                                  <tr align='center'>
                                     <td><input type="text" name="hora"></td>
-                            
-
-                                </tr>
+                                    <td align='center'>
+                                        <label for="name">Fruto:</label>
+                                        <select name="fruto">
+                                            <option value="Fresa">Fresa</option>
+                                            <option value="Arándano" selected>Arándano</option>
+                                            <option value="Mora">Mora</option>
+                                        </select>
+                                    </td>
+</tr>
                                 <tr>
                                     <td align='center' colspan="3"><hr /></td>
                                 </tr>
@@ -58,7 +64,7 @@
                                 <tr align='center'>
                                     <td align='left' colspan="3">
                                         <p>
-                                            <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Agregar " />
+                                            <input style="text-align:center;" class="btn btn-primary btn-group-sm" type="submit" value=" Generar Ticket " onclick="javascript:window.print()" />
                                         </p>
                                     </td>
                                 </tr>
